@@ -16,4 +16,3 @@ void main()
   vec4 ambient_color = vec4(0.5f, 0.25f, 0.0f, 1.0f);
   fragment_color = ambient_color + diffuseComponent * vec4(0.5f, 0.5f, 0.5f, 1.0f);
 }
-

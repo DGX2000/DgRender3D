@@ -21,9 +21,8 @@ int main()
 
     DgRender3D::initialize();
 
-    sf::Shader shader;
-    shader.loadFromFile("vertex_shader.glslv", "fragment_shader.glslf");
-    shader.setUniform("lightPosition", sf::Glsl::Vec3(0.0F, 5.0F, 0.0F));
+    Shader shader("vertex_shader.glslv", "fragment_shader.glslf");
+    shader.setUniform("lightPosition", glm::vec3(5.0F, 5.0F, 5.0F));
 
     Mesh cube = Mesh::createCube();
 
@@ -31,7 +30,7 @@ int main()
     MeshNode cubeNode(&cube, &shader);
     sceneRoot.addNode(&cubeNode);
 
-    FreeCamera freeCam(glm::vec3(0.0F, 0.0F, 3.0F));
+    FreeCamera freeCam(glm::vec3(0.0F, 0.0F, 5.0F));
 
     while(window.isOpen())
     {

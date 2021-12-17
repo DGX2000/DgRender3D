@@ -3,10 +3,10 @@ A 3D rendering library for personal use and learning purposes.
 
 ## Stuff to do
 
-- [ ] set up target for library and demo
-- [ ] scene graph: mesh/transform objects as nodes (cache transform/bounding box)
-- [ ] camera
-- [ ] lighting (blinn-phong)
+- [X] set up target for library and demo
+- [X] scene graph: mesh/transform objects as nodes (cache transform/bounding box)
+- [X] camera
+- [X] lighting (blinn-phong)
 - [ ] lighting maps
 - [ ] multiple lights
 - [ ] load glTf models

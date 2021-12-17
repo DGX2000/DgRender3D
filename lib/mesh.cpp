@@ -39,9 +39,10 @@ Mesh::~Mesh()
     glDeleteBuffers(1, &vbo);
 }
 
-void Mesh::draw(sf::Shader* shader)
+void Mesh::draw(Shader* shader)
 {
-    sf::Shader::bind(shader);
+    shader->use();
+
     glBindVertexArray(vao);
     glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, nullptr);
 }

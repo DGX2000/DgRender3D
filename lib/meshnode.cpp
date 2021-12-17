@@ -1,10 +1,9 @@
 #include "meshnode.h"
 
-#include <SFML/Graphics/Glsl.hpp>
-
 #include "mesh.h"
+#include "shader.h"
 
-MeshNode::MeshNode(Mesh* mesh, sf::Shader* shader)
+MeshNode::MeshNode(Mesh* mesh, Shader* shader)
     : mesh(mesh), shader(shader)
 {
 
@@ -12,8 +11,8 @@ MeshNode::MeshNode(Mesh* mesh, sf::Shader* shader)
 
 void MeshNode::draw(const glm::mat4& worldToCamera, const glm::mat4& modelToWorld) const
 {
-    shader->setUniform("camera", sf::Glsl::Mat4(&worldToCamera[0][0]));
-    shader->setUniform("model", sf::Glsl::Mat4(&modelToWorld[0][0]));
+    shader->setUniform("camera", worldToCamera);
+    shader->setUniform("model", modelToWorld);
     mesh->draw(shader);
 }
 

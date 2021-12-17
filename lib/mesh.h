@@ -5,7 +5,7 @@
 
 #include <glm/glm.hpp>
 
-#include <SFML/Graphics/Shader.hpp>
+#include "shader.h"
 
 class Mesh
 {
@@ -20,7 +20,7 @@ public:
     Mesh(std::vector<Vertex>&& vertices, std::vector<unsigned int>&& indices);
     ~Mesh();
 
-    void draw(sf::Shader* shader);
+    void draw(Shader* shader);
 
     static Mesh createCube();
     static Mesh createCylinder(unsigned int segments);

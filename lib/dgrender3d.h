@@ -10,6 +10,8 @@
 #include "camera.h"
 #include "freecamera.h"
 
+#include "shader.h"
+
 class DgRender3D
 {
 public:

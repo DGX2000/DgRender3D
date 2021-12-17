@@ -3,12 +3,10 @@
 
 #include "scenenode.h"
 
-#include <SFML/Graphics/Shader.hpp>
-
 class MeshNode : public SceneNode
 {
 public:
-    MeshNode(class Mesh* mesh, sf::Shader* shader);
+    MeshNode(class Mesh* mesh, class Shader* shader);
 
 protected:
     virtual void draw(const glm::mat4& worldToCamera, const glm::mat4& transformation) const;
@@ -17,7 +15,7 @@ protected:
 
 private:
     class Mesh* mesh;
-    sf::Shader* shader;
+    class Shader* shader;
 };
 
 #endif // MESHNODE_H
