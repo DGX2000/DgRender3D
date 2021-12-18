@@ -1,11 +1,13 @@
 #ifndef MESH_H
 #define MESH_H
 
+#include <optional>
 #include <vector>
 
 #include <glm/glm.hpp>
 
 #include "shader.h"
+#include "texture.h"
 
 class Mesh
 {
@@ -21,6 +23,8 @@ public:
     Mesh(std::vector<Vertex>&& vertices, std::vector<unsigned int>&& indices);
     ~Mesh();
 
+    void setTexture(Texture* texture);
+
     void draw(Shader* shader);
 
     static Mesh createCube();
@@ -28,6 +32,8 @@ public:
 private:
     std::vector<Vertex> vertices;
     std::vector<unsigned int> indices;
+
+    std::optional<Texture*> texture;
 
     unsigned int vao;
     unsigned int vbo;

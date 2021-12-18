@@ -2,10 +2,12 @@
 
 in vec3 normal;
 in vec3 positionWorld;
+in vec2 texCoord;
 
 out vec4 fragment_color;
 
 uniform vec3 lightPosition;
+uniform sampler2D colormap;
 
 void main()
 {
@@ -13,6 +15,5 @@ void main()
   vec3 lightDir = normalize(lightPosition - positionWorld);
 
   float diffuseComponent = max(dot(norm, lightDir), 0.0);
-  vec4 ambient_color = vec4(0.5f, 0.25f, 0.0f, 1.0f);
-  fragment_color = ambient_color + diffuseComponent * vec4(0.5f, 0.5f, 0.5f, 1.0f);
+  fragment_color = texture(colormap, texCoord) * diffuseComponent * vec4(0.5f, 0.5f, 0.5f, 1.0f);
 }

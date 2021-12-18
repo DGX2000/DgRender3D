@@ -31,7 +31,7 @@ Mesh::Mesh(std::vector<Vertex> &&vertices, std::vector<unsigned int> &&indices)
 
     // Vertex.texcoords
     glEnableVertexAttribArray(2);
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texCoords));
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texCoords));
 
     glBindVertexArray(0);
 }
@@ -43,9 +43,21 @@ Mesh::~Mesh()
     glDeleteBuffers(1, &vbo);
 }
 
+void Mesh::setTexture(Texture *texture)
+{
+    this->texture = texture;
+}
+
 void Mesh::draw(Shader* shader)
 {
     shader->use();
+
+    // TODO: Remove after the model class is finished!
+    if(texture.has_value())
+    {
+        glActiveTexture(GL_TEXTURE0);
+        texture.value()->bind();
+    }
 
     glBindVertexArray(vao);
     glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, nullptr);

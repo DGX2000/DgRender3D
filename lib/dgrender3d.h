@@ -11,6 +11,7 @@
 #include "freecamera.h"
 
 #include "shader.h"
+#include "texture.h"
 
 class DgRender3D
 {

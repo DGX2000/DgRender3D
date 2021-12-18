@@ -24,7 +24,9 @@ int main()
     Shader shader("vertex_shader.glslv", "fragment_shader.glslf");
     shader.setUniform("lightPosition", glm::vec3(5.0F, 5.0F, 5.0F));
 
+    Texture texture("sample_texture.png");
     Mesh cube = Mesh::createCube();
+    cube.setTexture(&texture);
 
     TransformNode sceneRoot;
     MeshNode cubeNode(&cube, &shader);
