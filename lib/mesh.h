@@ -14,6 +14,7 @@ public:
     {
         glm::vec3 position;
         glm::vec3 normal;
+        glm::vec2 texCoords;
     };
 
 public:
@@ -23,18 +24,6 @@ public:
     void draw(Shader* shader);
 
     static Mesh createCube();
-    static Mesh createCylinder(unsigned int segments);
-    static Mesh createSphere(unsigned int segments);
-
-private:
-    // Helper functions:
-    static std::vector<unsigned int> connectQuad(unsigned int start[4]);
-    static std::vector<unsigned int> connectRingToSingle(unsigned int ringStart,
-                                                         unsigned int ringLength,
-                                                         unsigned int center);
-    static std::vector<unsigned int> connectRingToRing(unsigned int upperRingStart,
-                                                       unsigned int lowerRingStart,
-                                                       unsigned int ringLength);
 
 private:
     std::vector<Vertex> vertices;
