@@ -20,7 +20,6 @@ public:
     };
 
 public:
-    Mesh(std::vector<Vertex>&& vertices, std::vector<unsigned int>&& indices);
     ~Mesh();
 
     void setTexture(Texture* texture);
@@ -30,9 +29,13 @@ public:
     static Mesh createCube();
 
 private:
+    Mesh(std::vector<Vertex>&& vertices, std::vector<unsigned int>&& indices);
+
+private:
     std::vector<Vertex> vertices;
     std::vector<unsigned int> indices;
 
+    // TODO: Add way to have several textures
     std::optional<Texture*> texture;
 
     unsigned int vao;
