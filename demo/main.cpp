@@ -24,13 +24,15 @@ int main()
     Shader shader("vertex_shader.glslv", "fragment_shader.glslf");
     shader.setUniform("lightPosition", glm::vec3(5.0F, 5.0F, 5.0F));
 
-    Texture texture("sample_texture.png");
-    Mesh cube = Mesh::createCube();
-    cube.setTexture(&texture);
+//    Texture texture("sample_texture.png");
+//    Mesh cube = Mesh::createCube();
+//    cube.setTexture(&texture);
 
-    TransformNode sceneRoot;
-    MeshNode cubeNode(&cube, &shader);
-    sceneRoot.addNode(&cubeNode);
+//    TransformNode sceneRoot;
+//    MeshNode cubeNode(&cube, &shader);
+//    sceneRoot.addNode(&cubeNode);
+
+    Model sampleScene("sample_scene.glb");
 
     FreeCamera freeCam(glm::vec3(0.0F, 0.0F, 5.0F));
 
@@ -93,7 +95,7 @@ int main()
         glClear(GL_COLOR_BUFFER_BIT);
         glClear(GL_DEPTH_BUFFER_BIT);
 
-        freeCam.capture(&sceneRoot);
+        freeCam.capture(sampleScene.getRootNode());
 
         window.display();
     }

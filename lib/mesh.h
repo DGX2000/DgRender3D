@@ -20,6 +20,7 @@ public:
     };
 
 public:
+    Mesh(std::vector<Vertex>&& vertices, std::vector<unsigned int>&& indices);
     ~Mesh();
 
     void setTexture(Texture* texture);
@@ -27,9 +28,6 @@ public:
     void draw(Shader* shader);
 
     static Mesh createCube();
-
-private:
-    Mesh(std::vector<Vertex>&& vertices, std::vector<unsigned int>&& indices);
 
 private:
     std::vector<Vertex> vertices;

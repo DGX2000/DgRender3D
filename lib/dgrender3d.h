@@ -6,6 +6,7 @@
 #include "mesh.h"
 #include "transformnode.h"
 #include "meshnode.h"
+#include "model.h"
 
 #include "camera.h"
 #include "freecamera.h"
